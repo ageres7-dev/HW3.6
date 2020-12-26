@@ -9,15 +9,13 @@
 import SwiftUI
 
 struct LogoRammsteinElements: View {
-//    let width: CGFloat
-//    let height: CGFloat
     let size: CGFloat
     
-    let showElementOne: Bool
-    let showElementTwo: Bool
-    let showElementThree: Bool
-    let showElementFour: Bool
-    let showElementR: Bool
+    var showElementOne = false
+    var showElementTwo = false
+    var showElementThree = false
+    var showElementFour = false
+    var showElementR = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -79,28 +77,16 @@ struct LogoRammsteinElements: View {
         .padding()
         
     }
-    
-    init(
-        size: CGFloat,
-        showElementOne: Bool = false,
-        showElementTwo: Bool = false,
-        showElementThree: Bool = false,
-        showElementFour: Bool = false,
-        showElementR: Bool = false
-    ) {
-        self.size = size
-        self.showElementOne = showElementOne
-        self.showElementTwo = showElementTwo
-        self.showElementThree = showElementThree
-        self.showElementFour = showElementFour
-        self.showElementR = showElementR
-    }
-
 }
 
 
 struct LogoElementR_Previews: PreviewProvider {
     static var previews: some View {
-        LogoRammsteinElements(size: 300, showElementOne: true, showElementTwo: true, showElementThree: true, showElementFour: true, showElementR: true)
+        LogoRammsteinElements(size: 300,
+                              showElementOne: true,
+                              showElementTwo: true,
+                              showElementThree: true,
+                              showElementFour: true,
+                              showElementR: true)
     }
 }

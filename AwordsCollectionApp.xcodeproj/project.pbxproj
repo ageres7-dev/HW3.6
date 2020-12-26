@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A5225FF225976B5100244ED9 /* RammsteinLogoElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5225FF125976B5100244ED9 /* RammsteinLogoElements.swift */; };
-		A5CA000D25974805007EF049 /* RammsteinLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CA000C25974805007EF049 /* RammsteinLogo.swift */; };
 		A80551D324DB159D00575B7A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80551D224DB159D00575B7A /* ContentView.swift */; };
 		A80551D524DB15A100575B7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A80551D424DB15A100575B7A /* Assets.xcassets */; };
 		A80551D824DB15A100575B7A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A80551D724DB15A100575B7A /* Preview Assets.xcassets */; };
@@ -23,7 +22,6 @@
 
 /* Begin PBXFileReference section */
 		A5225FF125976B5100244ED9 /* RammsteinLogoElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RammsteinLogoElements.swift; sourceTree = "<group>"; };
-		A5CA000C25974805007EF049 /* RammsteinLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RammsteinLogo.swift; sourceTree = "<group>"; };
 		A80551CB24DB159D00575B7A /* AwordsCollectionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwordsCollectionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A80551D224DB159D00575B7A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A80551D424DB15A100575B7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,7 +71,6 @@
 				A80551E424DB161E00575B7A /* TabViews.swift */,
 				A80551E224DB15FB00575B7A /* ShapesView.swift */,
 				A80551E624DB170A00575B7A /* GradientRectangles.swift */,
-				A5CA000C25974805007EF049 /* RammsteinLogo.swift */,
 				A5225FF125976B5100244ED9 /* RammsteinLogoElements.swift */,
 				A80551E824DB173900575B7A /* PathView.swift */,
 				A80551EA24DB175600575B7A /* CurvesView.swift */,
@@ -172,7 +169,6 @@
 				A80551D324DB159D00575B7A /* ContentView.swift in Sources */,
 				A80551EB24DB175600575B7A /* CurvesView.swift in Sources */,
 				A80551E724DB170A00575B7A /* GradientRectangles.swift in Sources */,
-				A5CA000D25974805007EF049 /* RammsteinLogo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

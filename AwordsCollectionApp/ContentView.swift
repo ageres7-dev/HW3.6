@@ -24,7 +24,7 @@ struct ContentView: View {
             }
             
             Spacer()
-
+            
             ZStack {
                 HearImage(showShape: !showShape)
                 
@@ -40,13 +40,14 @@ struct ContentView: View {
 
 struct HearImage: View {
     let showShape: Bool
+    
     var body: some View {
         if showShape {
             Image(systemName: "heart.fill")
                 .resizable()
                 .scaledToFit()
                 .shadow(radius: 20)
-                .foregroundColor(.red)
+//                .foregroundColor(.red)
                 .transition(.scale(scale: 0))
                 .frame(width: sizeElement, height: sizeElement)
         }
@@ -84,7 +85,7 @@ extension AnyTransition {
 }
 
 extension View {
-    var sizeElement: CGFloat { UIScreen.main.bounds.width * 0.75 }
+    var sizeElement: CGFloat { UIScreen.main.bounds.width * 0.65 }
 }
 
 struct ContentView_Previews: PreviewProvider {
