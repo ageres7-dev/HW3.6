@@ -48,14 +48,20 @@ struct RammsteinLogo: View {
                 //Character R
                 path.move(to: CGPoint(x: 0, y: longLine))
                 path.addLine(to: CGPoint(x: 0, y: shortLine))
-                path.addLine(to: CGPoint(x: longLine + (minIndent * 1.5), y: shortLine))
-                path.addLine(to: CGPoint(x: longLine + (minIndent * 1.5), y: longLine + minIndent))
-                path.addLine(to: CGPoint(x: longLine + (minIndent * 1.5) + minIndent, y: longLine + minIndent + shortLine))
+                path.addLine(to: CGPoint(x: longLine + minIndent, y: shortLine))
+                path.addLine(to: CGPoint(x: longLine + minIndent, y: longLine + minIndent))
+                path.addLine(to: CGPoint(x: longLine + minIndent + minIndent, y: longLine + minIndent + shortLine))
                 
+//
+//                //нижняя палка r
+//                path.addLine(to: CGPoint(x: size - (longLine + minIndent * 2), y: longLine + minIndent + shortLine))
                 
-//                path.addLine(to: CGPoint(x: size - (shortLine + minIndent * 2), y: longLine + minIndent + shortLine))
+                //нижняя палка r
                 path.addLine(to: CGPoint(x: size - (longLine + minIndent * 2), y: longLine + minIndent + shortLine))
-                path.addLine(to: CGPoint(x: shortLine + (minIndent * 1.5), y: longLine + minIndent))
+                
+
+//                path.addLine(to: CGPoint(x: shortLine + (minIndent * 1.5), y: longLine + minIndent))
+                path.addLine(to: CGPoint(x: shortLine + (minIndent / 2), y: longLine + minIndent))
                 
                 path.addLine(to: CGPoint(x: shortLine, y: longLine + minIndent))
                 path.addLine(to: CGPoint(x: shortLine, y: size - shortLine))
