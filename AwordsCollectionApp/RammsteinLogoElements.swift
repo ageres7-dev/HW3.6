@@ -34,7 +34,6 @@ struct LogoRammsteinElements: View {
                 }
                 
                 if showElementTwo {
-                    //
                     path.move(to: CGPoint(x: longLine + minIndent, y: 0))
                     path.addLine(to: CGPoint(x: size - shortLine, y: 0))
                     path.addLine(to: CGPoint(x: size - shortLine, y: shortLine))
@@ -43,8 +42,6 @@ struct LogoRammsteinElements: View {
                 }
                 
                 if showElementThree {
-                    
-                    //
                     path.move(to: CGPoint(x: size, y: size - longLine))
                     path.addLine(to: CGPoint(x: size, y: size - shortLine))
                     path.addLine(to: CGPoint(x: size - shortLine, y: size - shortLine))
@@ -53,19 +50,17 @@ struct LogoRammsteinElements: View {
                 }
                 
                 if showElementFour {
-                    //
                     path.move(to: CGPoint(x: longLine, y: size))
                     path.addLine(to: CGPoint(x: shortLine, y: size))
                     path.addLine(to: CGPoint(x: shortLine, y: size - (shortLine - minIndent) ))
                 }
                 if showElementR {
-                    //Character R
                     path.move(to: CGPoint(x: 0, y: longLine))
                     path.addLine(to: CGPoint(x: 0, y: shortLine))
                     path.addLine(to: CGPoint(x: longLine + minIndent, y: shortLine))
                     path.addLine(to: CGPoint(x: longLine + minIndent, y: longLine + minIndent))
                     path.addLine(to: CGPoint(x: shortLine * 2 + minIndent * 2.5, y: longLine + minIndent + shortLine))
-                    path.addLine(to: CGPoint(x: shortLine + (minIndent * 2.5), y: longLine + minIndent + shortLine))
+                    path.addLine(to: CGPoint(x: shortLine + (minIndent * 2), y: longLine + minIndent + shortLine))
                     path.addLine(to: CGPoint(x: shortLine + (minIndent * 0.5), y: longLine + minIndent))
                     path.addLine(to: CGPoint(x: shortLine, y: longLine + minIndent))
                     path.addLine(to: CGPoint(x: shortLine, y: size - shortLine))
@@ -80,8 +75,8 @@ struct LogoRammsteinElements: View {
             .shadow(radius: size * 0.08)
             
         }
-//        .padding()
         .frame(width: size, height: size)
+        .padding()
         
     }
     
@@ -108,7 +103,7 @@ struct LogoRammsteinElements: View {
 struct LogoElementR_Previews: PreviewProvider {
     static var previews: some View {
 //        LogoRammsteinElements(width: 300, height: 300, showElementR: false)
-        LogoRammsteinElements(size: 300, showElementFour: true, showElementR: true)
+//        LogoRammsteinElements(size: 300, showElementFour: true, showElementR: true)
         LogoRammsteinElements(size: 300, showElementOne: true, showElementTwo: true, showElementThree: true, showElementFour: true, showElementR: true)
     }
 }
