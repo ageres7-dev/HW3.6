@@ -67,7 +67,7 @@ struct LogoRammsteinElements: View {
                 }
             }
             .stroke(
-                Color.black,
+                Color.primary,
                 style: StrokeStyle(lineWidth: size * 0.05)
             )
             .shadow(radius: size * 0.08)
