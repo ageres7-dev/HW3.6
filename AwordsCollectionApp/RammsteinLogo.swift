@@ -50,19 +50,9 @@ struct RammsteinLogo: View {
                 path.addLine(to: CGPoint(x: 0, y: shortLine))
                 path.addLine(to: CGPoint(x: longLine + minIndent, y: shortLine))
                 path.addLine(to: CGPoint(x: longLine + minIndent, y: longLine + minIndent))
-                path.addLine(to: CGPoint(x: longLine + minIndent + minIndent, y: longLine + minIndent + shortLine))
-                
-//
-//                //нижняя палка r
-//                path.addLine(to: CGPoint(x: size - (longLine + minIndent * 2), y: longLine + minIndent + shortLine))
-                
-                //нижняя палка r
-                path.addLine(to: CGPoint(x: size - (longLine + minIndent * 2), y: longLine + minIndent + shortLine))
-                
-
-//                path.addLine(to: CGPoint(x: shortLine + (minIndent * 1.5), y: longLine + minIndent))
-                path.addLine(to: CGPoint(x: shortLine + (minIndent / 2), y: longLine + minIndent))
-                
+                path.addLine(to: CGPoint(x: shortLine * 2 + minIndent * 2.5, y: longLine + minIndent + shortLine))
+                path.addLine(to: CGPoint(x: shortLine + (minIndent * 2.5), y: longLine + minIndent + shortLine))
+                path.addLine(to: CGPoint(x: shortLine + (minIndent * 0.5), y: longLine + minIndent))
                 path.addLine(to: CGPoint(x: shortLine, y: longLine + minIndent))
                 path.addLine(to: CGPoint(x: shortLine, y: size - shortLine))
                 path.addLine(to: CGPoint(x: 0, y: size - shortLine))
@@ -71,7 +61,7 @@ struct RammsteinLogo: View {
             }
             .stroke(
                 Color.black,
-                style: StrokeStyle(lineWidth: 10)
+                style: StrokeStyle(lineWidth: 15)
             )
             
         }
