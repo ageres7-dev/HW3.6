@@ -13,6 +13,12 @@ struct ShapesView: View {
         NavigationView {
             VStack {
                 ScrollView {
+                    LogoRammsteinElements(size: 250,
+                                          showElementOne: true,
+                                          showElementTwo: true,
+                                          showElementThree: true,
+                                          showElementFour: true,
+                                          showElementR: true)
                     GradientRectangles(width: 250, height: 250)
                     PathView(width: 250, height: 250)
                     CurvesView(width: 250, height: 250)

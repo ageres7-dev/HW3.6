@@ -25,25 +25,21 @@ struct ContentView: View {
             
             Spacer()
             
-            ZStack {
-                let size: CGFloat = 250
-                if showShape {
-                    Group {
-                        LogoRammsteinElements(size: size, showElementR: true)
-                            .transition(.move(edge: .leading))
-                        
-                        LogoRammsteinElements(size: size, showElementOne: true)
-                            .transition(.upperLeft)
-                        LogoRammsteinElements(size: size, showElementTwo: true)
-                            .transition(.upperRight)
-                        LogoRammsteinElements(size: size, showElementThree: true)
-                            .transition(.bottomRight)
-                        LogoRammsteinElements(size: size, showElementFour: true)
-                            .transition(.bottomLeft)
 
+            ZStack {
+                
+                if !showShape {
+                    ScrollView {
+                        Text("Rammstein \n \n немецкая метал-группа, образованная в январе 1994 года в Берлине. Музыкальный стиль группы относится к жанру индастриал-метала (конкретно — его немецкой сцене Neue Deutsche Härte). Основные черты творчества группы: специфический ритм, в котором выдержана большая часть композиций, и эпатирующие тексты песен. Особую известность группе принесли сценические выступления, часто сопровождаемые использованием пиротехники, получившие признание в музыкальной среде. Состав группы ни разу не менялся.")
+                            .font(.title2)
+                            .multilineTextAlignment(.center)
+                            
+                            
                     }
-                    .animation(.default)
+                    .transition(.scale(scale: 0))
                 }
+                
+                AnamatedLogo(showShape: showShape)
             }
             Spacer()
         }
@@ -63,17 +59,37 @@ extension AnyTransition {
     }
     
     static var upperLeft = AnyTransition.move(edge: .leading).combined(with: .move(edge: .top))
-    
     static var upperRight = AnyTransition.move(edge: .trailing).combined(with: .move(edge: .top))
-    
     static var bottomLeft = AnyTransition.move(edge: .leading).combined(with: .move(edge: .bottom))
-    
     static var bottomRight = AnyTransition.move(edge: .trailing).combined(with: .move(edge: .bottom))
-    
+
 }
 
 
-
+struct AnamatedLogo: View {
+    let showShape: Bool
+    
+    var body: some View {
+        
+        let size: CGFloat = 250
+        if showShape {
+            Group {
+                LogoRammsteinElements(size: size, showElementR: true)
+                    .transition(.move(edge: .leading))
+                LogoRammsteinElements(size: size, showElementOne: true)
+                    .transition(.upperLeft)
+                LogoRammsteinElements(size: size, showElementTwo: true)
+                    .transition(.upperRight)
+                LogoRammsteinElements(size: size, showElementThree: true)
+                    .transition(.bottomRight)
+                LogoRammsteinElements(size: size, showElementFour: true)
+                    .transition(.bottomLeft)
+                
+            }
+            .animation(.easeInOut)
+        }
+    }
+}
 
 
 struct ContentView_Previews: PreviewProvider {
@@ -81,3 +97,30 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+/*
+static var upperLeft: AnyTransition {
+    let insertion = AnyTransition.move(edge: .leading).combined(with: .move(edge: .top))
+    let removal = AnyTransition.move(edge: .trailing).combined(with: .move(edge: .bottom))
+    return .asymmetric(insertion: insertion, removal: removal)
+}
+
+static var upperRight: AnyTransition {
+    let insertion = AnyTransition.move(edge: .trailing).combined(with: .move(edge: .top))
+    let removal = AnyTransition.move(edge: .leading).combined(with: .move(edge: .bottom))
+    return .asymmetric(insertion: insertion, removal: removal)
+}
+
+static var bottomLeft: AnyTransition {
+    let insertion = AnyTransition.move(edge: .leading).combined(with: .move(edge: .bottom))
+    let removal = AnyTransition.move(edge: .trailing).combined(with: .move(edge: .top))
+    return .asymmetric(insertion: insertion, removal: removal)
+}
+static var bottomRight: AnyTransition {
+    
+    let insertion = AnyTransition.move(edge: .trailing).combined(with: .move(edge: .bottom))
+    let removal = AnyTransition.move(edge: .leading).combined(with: .move(edge: .top))
+    return .asymmetric(insertion: insertion, removal: removal)
+}
+*/
