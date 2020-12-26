@@ -24,20 +24,9 @@ struct ContentView: View {
             }
             
             Spacer()
-            
 
             ZStack {
-                
-                if !showShape {
-                    ScrollView {
-                        Text("Rammstein \n \n немецкая метал-группа, образованная в январе 1994 года в Берлине. Музыкальный стиль группы относится к жанру индастриал-метала (конкретно — его немецкой сцене Neue Deutsche Härte). Основные черты творчества группы: специфический ритм, в котором выдержана большая часть композиций, и эпатирующие тексты песен. Особую известность группе принесли сценические выступления, часто сопровождаемые использованием пиротехники, получившие признание в музыкальной среде. Состав группы ни разу не менялся.")
-                            .font(.title2)
-                            .multilineTextAlignment(.center)
-                            
-                            
-                    }
-                    .transition(.scale(scale: 0))
-                }
+                HearImage(showShape: !showShape)
                 
                 AnamatedLogo(showShape: showShape)
             }
@@ -46,32 +35,29 @@ struct ContentView: View {
         .font(.headline)
         .padding()
     }
-}
-
-extension AnyTransition {
-    static var transition: AnyTransition {
-        let insertion = AnyTransition.move(edge: .leading)
-            .combined(with: .move(edge: .top))
-        let removal = AnyTransition.scale
-            .combined(with: .opacity)
-        return .asymmetric(insertion: insertion, removal: removal)
-        
-    }
     
-    static var upperLeft = AnyTransition.move(edge: .leading).combined(with: .move(edge: .top))
-    static var upperRight = AnyTransition.move(edge: .trailing).combined(with: .move(edge: .top))
-    static var bottomLeft = AnyTransition.move(edge: .leading).combined(with: .move(edge: .bottom))
-    static var bottomRight = AnyTransition.move(edge: .trailing).combined(with: .move(edge: .bottom))
-
 }
 
+struct HearImage: View {
+    let showShape: Bool
+    var body: some View {
+        if showShape {
+            Image(systemName: "heart.fill")
+                .resizable()
+                .scaledToFit()
+                .shadow(radius: 20)
+                .foregroundColor(.red)
+                .transition(.scale(scale: 0))
+                .frame(width: sizeElement, height: sizeElement)
+        }
+    }
+}
 
 struct AnamatedLogo: View {
     let showShape: Bool
     
     var body: some View {
-        
-        let size: CGFloat = 250
+        let size = sizeElement
         if showShape {
             Group {
                 LogoRammsteinElements(size: size, showElementR: true)
@@ -84,13 +70,22 @@ struct AnamatedLogo: View {
                     .transition(.bottomRight)
                 LogoRammsteinElements(size: size, showElementFour: true)
                     .transition(.bottomLeft)
-                
             }
             .animation(.easeInOut)
         }
     }
 }
 
+extension AnyTransition {
+    static var upperLeft = AnyTransition.move(edge: .leading).combined(with: .move(edge: .top))
+    static var upperRight = AnyTransition.move(edge: .trailing).combined(with: .move(edge: .top))
+    static var bottomLeft = AnyTransition.move(edge: .leading).combined(with: .move(edge: .bottom))
+    static var bottomRight = AnyTransition.move(edge: .trailing).combined(with: .move(edge: .bottom))
+}
+
+extension View {
+    var sizeElement: CGFloat { UIScreen.main.bounds.width * 0.75 }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -98,6 +93,17 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+struct HearImage_Previews: PreviewProvider {
+    static var previews: some View {
+        HearImage(showShape: true)
+    }
+}
+
+struct AnamatedLogo_Previews: PreviewProvider {
+    static var previews: some View {
+        AnamatedLogo(showShape: true)
+    }
+}
 
 /*
 static var upperLeft: AnyTransition {

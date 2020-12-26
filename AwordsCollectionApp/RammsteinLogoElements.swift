@@ -99,11 +99,8 @@ struct LogoRammsteinElements: View {
 }
 
 
-
 struct LogoElementR_Previews: PreviewProvider {
     static var previews: some View {
-//        LogoRammsteinElements(width: 300, height: 300, showElementR: false)
-//        LogoRammsteinElements(size: 300, showElementFour: true, showElementR: true)
         LogoRammsteinElements(size: 300, showElementOne: true, showElementTwo: true, showElementThree: true, showElementFour: true, showElementR: true)
     }
 }
