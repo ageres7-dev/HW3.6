@@ -9,8 +9,9 @@
 import SwiftUI
 
 struct LogoRammsteinElements: View {
-    let width: CGFloat
-    let height: CGFloat
+//    let width: CGFloat
+//    let height: CGFloat
+    let size: CGFloat
     
     let showElementOne: Bool
     let showElementTwo: Bool
@@ -20,7 +21,7 @@ struct LogoRammsteinElements: View {
     
     var body: some View {
         GeometryReader { geometry in
-            let size = min(geometry.size.height, geometry.size.width)
+//            let size = min(geometry.size.height, geometry.size.width)
             let minIndent = size * 0.056
             let longLine = size / 2 - minIndent / 2
             let shortLine = longLine / 2
@@ -79,42 +80,35 @@ struct LogoRammsteinElements: View {
             .shadow(radius: size * 0.08)
             
         }
-        .padding()
-        .frame(width: width, height: height)
+//        .padding()
+        .frame(width: size, height: size)
         
     }
     
     init(
-        width: CGFloat,
-        height: CGFloat,
+        size: CGFloat,
         showElementOne: Bool = false,
         showElementTwo: Bool = false,
         showElementThree: Bool = false,
         showElementFour: Bool = false,
         showElementR: Bool = false
     ) {
-        self.width = width
-        self.height = height
+        self.size = size
         self.showElementOne = showElementOne
-        self.showElementTwo = showElementOne
+        self.showElementTwo = showElementTwo
         self.showElementThree = showElementThree
         self.showElementFour = showElementFour
         self.showElementR = showElementR
     }
-    
-    
-    
-}
-
-extension LogoRammsteinElements {
 
 }
+
 
 
 struct LogoElementR_Previews: PreviewProvider {
     static var previews: some View {
 //        LogoRammsteinElements(width: 300, height: 300, showElementR: false)
-        LogoRammsteinElements(width: 300, height: 300, showElementFour: true, showElementR: true)
-        LogoRammsteinElements(width: 300, height: 300, showElementOne: true, showElementTwo: true, showElementThree: true, showElementFour: true, showElementR: true)
+        LogoRammsteinElements(size: 300, showElementFour: true, showElementR: true)
+        LogoRammsteinElements(size: 300, showElementOne: true, showElementTwo: true, showElementThree: true, showElementFour: true, showElementR: true)
     }
 }

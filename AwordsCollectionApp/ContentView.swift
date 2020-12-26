@@ -25,12 +25,26 @@ struct ContentView: View {
             
             Spacer()
             
-            if showShape {
-                RammsteinLogo(width: 250, height: 250)
+            ZStack {
+                let size: CGFloat = 250
+                if showShape {
+                    Group {
+                        LogoRammsteinElements(size: size, showElementR: true)
+                            .transition(.move(edge: .leading))
+                        
+                        LogoRammsteinElements(size: size, showElementOne: true)
+                            .transition(.upperLeft)
+                        LogoRammsteinElements(size: size, showElementTwo: true)
+                            .transition(.upperRight)
+                        LogoRammsteinElements(size: size, showElementThree: true)
+                            .transition(.bottomRight)
+                        LogoRammsteinElements(size: size, showElementFour: true)
+                            .transition(.bottomLeft)
+
+                    }
                     .animation(.default)
-                    .transition(.transition)
+                }
             }
-            
             Spacer()
         }
         .font(.headline)
@@ -45,8 +59,22 @@ extension AnyTransition {
         let removal = AnyTransition.scale
             .combined(with: .opacity)
         return .asymmetric(insertion: insertion, removal: removal)
+        
     }
+    
+    static var upperLeft = AnyTransition.move(edge: .leading).combined(with: .move(edge: .top))
+    
+    static var upperRight = AnyTransition.move(edge: .trailing).combined(with: .move(edge: .top))
+    
+    static var bottomLeft = AnyTransition.move(edge: .leading).combined(with: .move(edge: .bottom))
+    
+    static var bottomRight = AnyTransition.move(edge: .trailing).combined(with: .move(edge: .bottom))
+    
 }
+
+
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
