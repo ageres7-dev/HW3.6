@@ -26,7 +26,7 @@ struct ContentView: View {
             Spacer()
             
             if showShape {
-                GradientRectangles(width: 250, height: 250)
+                RammsteinLogo(width: 250, height: 250)
                     .animation(.default)
                     .transition(.transition)
             }
@@ -41,7 +41,7 @@ struct ContentView: View {
 extension AnyTransition {
     static var transition: AnyTransition {
         let insertion = AnyTransition.move(edge: .leading)
-            .combined(with: .scale)
+            .combined(with: .move(edge: .top))
         let removal = AnyTransition.scale
             .combined(with: .opacity)
         return .asymmetric(insertion: insertion, removal: removal)

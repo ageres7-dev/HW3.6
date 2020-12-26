@@ -14,8 +14,6 @@ struct RammsteinLogo: View {
     var body: some View {
         GeometryReader { geometry in
             let size = min(geometry.size.height, geometry.size.width)
-            
-//            let cornerIndent = size * 0.26
             let minIndent = size * 0.056
             let longLine = size / 2 - minIndent / 2
             let shortLine = longLine / 2
@@ -61,8 +59,9 @@ struct RammsteinLogo: View {
             }
             .stroke(
                 Color.black,
-                style: StrokeStyle(lineWidth: 15)
+                style: StrokeStyle(lineWidth: size * 0.05)
             )
+            .shadow(radius: size * 0.08)
             
         }
         .padding()
@@ -71,14 +70,6 @@ struct RammsteinLogo: View {
     
     }
 }
-
-
-//struct RammsteinStroke: ViewModifier {
-//    func body(content: Content) -> some View {
-//        content.stroke
-//
-//    }
-//}
 
 
 struct RammsteinLogo_Previews: PreviewProvider {
